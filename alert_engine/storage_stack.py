@@ -29,11 +29,11 @@ class StorageStack(Stack):
             table_name="alert-engine-rules",
             partition_key=dynamodb.Attribute(
                 name="rule_id",
-                type=dynamodb.AttributeType.STRING
-            )
+                type=dynamodb.AttributeType.STRING,
+            ),
             billing_mode=dynamodb.BillingMode.PAY_PER_REQUEST,
             removal_policy=RemovalPolicy.RETAIN,
-            point_in_time_recovery=True
+            point_in_time_recovery=True,
         )
 
         """
@@ -44,7 +44,7 @@ class StorageStack(Stack):
         self.price_history_table = dynamodb.Table(
             self,
             "PriceHistoryTable",
-            table_name="alert-engine-price-history"
+            table_name="alert-engine-price-history",
             partition_key=dynamodb.Attribute(
                 name="source_entity",
                 type=dynamodb.AttributeType.STRING,
@@ -55,7 +55,7 @@ class StorageStack(Stack):
             ),
             billing_mode=dynamodb.BillingMode.PAY_PER_REQUEST,
             removal_policy=RemovalPolicy.RETAIN,
-            point_in_time_recovery=True
+            point_in_time_recovery=True,
         )
 
         """
@@ -68,7 +68,7 @@ class StorageStack(Stack):
             block_public_access=s3.BlockPublicAccess.BLOCK_ALL,
             encryption=s3.BucketEncryption.S3_MANAGED,
             versioned=False,
-            enforce_ssl=True
+            enforce_ssl=True,
         )
 
         """
