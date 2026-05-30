@@ -1,3 +1,5 @@
+import os
+
 import aws_cdk as cdk
 
 from alert_engine.storage_stack import StorageStack
@@ -5,7 +7,7 @@ from alert_engine.compute_stack import ComputeStack
 
 app = cdk.App()
 
-env = cdk.Environment(account="", region="us-east-1")
+env = cdk.Environment(account=os.getenv("AWS_ACCOUNT_ID"), region=os.getenv("AWS_REGION"))
 
 storage = StorageStack(
     app,

@@ -96,8 +96,8 @@ class StorageStack(Stack):
             client_ids=["sts.amazonaws.com"],
         )
 
-        github_org = os.environ.get("GITHUB_ORG", "christkr")
-        github_repo = os.environ.get("GITHUB_REPO", "AlertEngine")
+        github_org = os.environ.get("GITHUB_ORG")
+        github_repo = os.environ.get("GITHUB_REPO")
 
         self.github_actions_role = iam.Role(
             self,
